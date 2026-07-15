@@ -30,7 +30,7 @@ export function buildFullAddress(orderInfo: OrderInfo): string {
 }
 
 export function getWhatsAppUrl(items: CartItem[], orderInfo: OrderInfo): string {
-  const phone = "5561999999999"; // Número da loja (substituir pelo real)
+  const phone = "5561993586071"; // Número oficial da Hamburgueria
   const message = buildWhatsAppMessage(items, orderInfo);
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
