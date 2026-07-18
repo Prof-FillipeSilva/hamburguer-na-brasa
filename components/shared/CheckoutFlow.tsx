@@ -5,6 +5,18 @@ import { useCartStore } from "@/store/cartStore";
 import { formatCurrency } from "@/lib/products";
 import { OrderInfo, getWhatsAppUrl } from "@/lib/whatsapp";
 import TicketPreview from "./TicketPreview";
+import {
+  ArrowLeft,
+  ArrowRight,
+  X,
+  Store,
+  Bike,
+  Utensils,
+  QrCode,
+  CreditCard,
+  Banknote,
+  CheckCircle2,
+} from "lucide-react";
 
 interface CheckoutFlowProps {
   isOpen: boolean;
@@ -154,7 +166,7 @@ export default function CheckoutFlow({ isOpen, onClose }: CheckoutFlowProps) {
                 onClick={() => setStep((s) => (s - 1) as Step)}
                 className="p-1.5 rounded-lg hover:bg-white/5 transition-colors"
               >
-                <span className="material-symbols-outlined text-muted-foreground text-xl">arrow_back</span>
+                <ArrowLeft size={22} strokeWidth={2} className="text-muted-foreground" />
               </button>
             )}
             <div>
@@ -163,7 +175,7 @@ export default function CheckoutFlow({ isOpen, onClose }: CheckoutFlowProps) {
             </div>
           </div>
           <button onClick={onClose} className="p-2 rounded-lg hover:bg-white/5 transition-colors">
-            <span className="material-symbols-outlined text-muted-foreground">close</span>
+            <X size={22} strokeWidth={2} className="text-muted-foreground" />
           </button>
         </div>
 
@@ -215,10 +227,10 @@ export default function CheckoutFlow({ isOpen, onClose }: CheckoutFlowProps) {
               {/* 3 Options */}
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { key: "retirada" as const, label: "Retirada", sub: "No balcão", icon: "storefront" },
-                  { key: "entrega" as const, label: "Entrega", sub: "No endereço", icon: "delivery_dining" },
-                  { key: "mesa" as const, label: "Na Mesa", sub: "Consumir aqui", icon: "table_restaurant" },
-                ].map(({ key, label, sub, icon }) => (
+                  { key: "retirada" as const, label: "Retirada", sub: "No balcão", Icon: Store },
+                  { key: "entrega" as const, label: "Entrega", sub: "No endereço", Icon: Bike },
+                  { key: "mesa" as const, label: "Na Mesa", sub: "Consumir aqui", Icon: Utensils },
+                ].map(({ key, label, sub, Icon }) => (
                   <button
                     key={key}
                     onClick={() => patch({ deliveryType: key })}
@@ -227,7 +239,7 @@ export default function CheckoutFlow({ isOpen, onClose }: CheckoutFlowProps) {
                       : "border-white/10 text-muted-foreground hover:border-white/20"
                       }`}
                   >
-                    <span className="material-symbols-outlined text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>{icon}</span>
+                    <Icon size={24} strokeWidth={2} />
                     <span className="font-heading font-bold text-xs block">{label}</span>
                     <span className="text-[10px] text-muted-foreground leading-tight">{sub}</span>
                   </button>
@@ -289,10 +301,10 @@ export default function CheckoutFlow({ isOpen, onClose }: CheckoutFlowProps) {
               <p className="text-sm text-muted-foreground">Como vai pagar?</p>
               <div className="space-y-3">
                 {[
-                  { key: "pix" as const, label: "PIX", icon: "qr_code_2", desc: "Pagamento instantâneo" },
-                  { key: "cartao" as const, label: "Cartão", icon: "credit_card", desc: "Débito ou Crédito (Máquina)" },
-                  { key: "dinheiro" as const, label: "Dinheiro", icon: "payments", desc: "Pagamento em espécie" },
-                ].map(({ key, label, icon, desc }) => (
+                  { key: "pix" as const, label: "PIX", Icon: QrCode, desc: "Pagamento instantâneo" },
+                  { key: "cartao" as const, label: "Cartão", Icon: CreditCard, desc: "Débito ou Crédito (Máquina)" },
+                  { key: "dinheiro" as const, label: "Dinheiro", Icon: Banknote, desc: "Pagamento em espécie" },
+                ].map(({ key, label, Icon, desc }) => (
                   <button
                     key={key}
                     onClick={() => patch({ paymentMethod: key })}
@@ -301,16 +313,17 @@ export default function CheckoutFlow({ isOpen, onClose }: CheckoutFlowProps) {
                       : "border-white/10 hover:border-white/20"
                       }`}
                   >
-                    <span
-                      className={`material-symbols-outlined text-2xl ${orderInfo.paymentMethod === key ? "text-flame-orange" : "text-muted-foreground"}`}
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >{icon}</span>
+                    <Icon
+                      size={24}
+                      strokeWidth={2}
+                      className={orderInfo.paymentMethod === key ? "text-flame-orange" : "text-muted-foreground"}
+                    />
                     <div className="text-left">
                       <span className="font-heading font-bold text-foreground block text-sm">{label}</span>
                       <span className="text-xs text-muted-foreground">{desc}</span>
                     </div>
                     {orderInfo.paymentMethod === key && (
-                      <span className="material-symbols-outlined text-flame-orange ml-auto" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                      <CheckCircle2 size={22} strokeWidth={2.25} className="text-flame-orange ml-auto" />
                     )}
                   </button>
                 ))}
@@ -368,7 +381,7 @@ export default function CheckoutFlow({ isOpen, onClose }: CheckoutFlowProps) {
               className="w-full py-4 font-bold rounded-xl flex items-center justify-center gap-2 transition-all duration-300 text-base bg-flame-orange text-background hover:opacity-90 active:scale-[0.98] shadow-lg shadow-flame-orange/20"
             >
               CONTINUAR
-              <span className="material-symbols-outlined">arrow_forward</span>
+              <ArrowRight size={20} strokeWidth={2.25} />
             </button>
           ) : (
             <button

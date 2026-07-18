@@ -3,6 +3,7 @@
 import { Product, formatCurrency } from "@/lib/products";
 import { useCartStore } from "@/store/cartStore";
 import { useState, useEffect, useCallback } from "react";
+import { X, BookOpen, Minus, Plus, CheckCircle2, ShoppingCart } from "lucide-react";
 
 interface ProductModalProps {
   product: Product | null;
@@ -81,7 +82,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             onClick={handleClose}
             className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full border border-white/20 text-white hover:bg-black/70 transition-all"
           >
-            <span className="material-symbols-outlined text-lg leading-none">close</span>
+            <X size={20} strokeWidth={2} />
           </button>
 
           {/* Badge */}
@@ -117,7 +118,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             {product.ingredients && product.ingredients.length > 0 && (
               <div className="space-y-3">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-flame-orange flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>menu_book</span>
+                  <BookOpen size={15} strokeWidth={2.25} />
                   Ingredientes
                 </h3>
                 <ul className="space-y-2">
@@ -139,14 +140,14 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/5 transition-colors active:scale-95"
                 >
-                  <span className="material-symbols-outlined text-lg">remove</span>
+                  <Minus size={20} strokeWidth={2.25} />
                 </button>
                 <span className="text-2xl font-heading font-bold w-8 text-center">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
                   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/5 transition-colors active:scale-95"
                 >
-                  <span className="material-symbols-outlined text-lg">add</span>
+                  <Plus size={20} strokeWidth={2.25} />
                 </button>
                 <span className="ml-auto text-flame-orange font-bold text-lg font-heading">
                   {formatCurrency(product.price * quantity)}
@@ -166,9 +167,9 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 : "bg-flame-orange text-background hover:opacity-90 shadow-lg shadow-flame-orange/20"
             }`}
           >
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
-              {added ? "check_circle" : "add_shopping_cart"}
-            </span>
+            {added
+              ? <CheckCircle2 size={20} strokeWidth={2.25} />
+              : <ShoppingCart size={20} strokeWidth={2.25} />}
             {added ? "ADICIONADO AO PEDIDO ✓" : `ADICIONAR · ${formatCurrency(product.price * quantity)}`}
           </button>
         </div>

@@ -142,16 +142,22 @@
 .delay-500 { animation-delay: 0.5s; }
 .delay-700 { animation-delay: 0.7s; }
 
-/* Hero fire orb animation */
+/* Hero fire orb animation — transform-based (GPU-composited) para não custar layout */
 .fire-orb {
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  animation: morphOrb 8s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  animation: floatOrb 10s ease-in-out infinite;
 }
 
-@keyframes morphOrb {
-  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+@keyframes floatOrb {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(0, -24px, 0) scale(1.08); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fire-orb { animation: none; }
 }
 
 /* Stagger children */

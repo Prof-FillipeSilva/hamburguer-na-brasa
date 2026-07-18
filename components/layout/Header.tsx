@@ -2,6 +2,7 @@
 
 import { useCartStore } from "@/store/cartStore";
 import { useState, useEffect } from "react";
+import { ShoppingBag } from "lucide-react";
 
 interface HeaderProps {
   onCartClick: () => void;
@@ -52,12 +53,7 @@ export default function Header({ onCartClick }: HeaderProps) {
           className="relative flex items-center gap-2 bg-ember-red-deep hover:bg-ember-red-deep/90 text-white font-bold px-4 py-2 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-ember-red/30 text-sm active:scale-95 hover:scale-105"
           aria-label="Abrir carrinho"
         >
-          <span
-            className="material-symbols-outlined text-lg leading-none"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            shopping_bag
-          </span>
+          <ShoppingBag size={18} strokeWidth={2.25} />
           <span className="hidden sm:inline">Sacola</span>
 
           {totalItems > 0 && (

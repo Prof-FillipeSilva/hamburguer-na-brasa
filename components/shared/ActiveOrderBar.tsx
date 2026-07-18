@@ -3,6 +3,7 @@
 import { useCartStore } from "@/store/cartStore";
 import { formatCurrency } from "@/lib/products";
 import { useState, useEffect } from "react";
+import { ShoppingBag } from "lucide-react";
 
 interface ActiveOrderBarProps {
   onOpenCart: () => void;
@@ -55,9 +56,7 @@ export default function ActiveOrderBar({ onOpenCart }: ActiveOrderBarProps) {
 
         <div className="flex items-center gap-1.5 pl-2 border-l border-background/20">
           <span className="text-sm font-heading font-black">{formatCurrency(total)}</span>
-          <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>
-            shopping_bag
-          </span>
+          <ShoppingBag size={18} strokeWidth={2.25} />
         </div>
       </button>
     </div>

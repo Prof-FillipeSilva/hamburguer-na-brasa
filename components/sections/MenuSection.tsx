@@ -4,12 +4,13 @@ import { useState, useRef, useEffect } from "react";
 import { products, Product } from "@/lib/products";
 import ProductCard from "@/components/shared/ProductCard";
 import ProductModal from "@/components/shared/ProductModal";
+import { LayoutGrid, Sandwich, UtensilsCrossed, Coffee, ChevronLeft, ChevronRight } from "lucide-react";
 
 const CATEGORIES = [
-  { key: "todos", label: "Todos", icon: "apps" },
-  { key: "hamburgueres", label: "Hambúrgueres", icon: "lunch_dining" },
-  { key: "acompanhamentos", label: "Acompanhamentos", icon: "dinner_dining" },
-  { key: "bebidas", label: "Bebidas", icon: "local_cafe" },
+  { key: "todos", label: "Todos", Icon: LayoutGrid },
+  { key: "hamburgueres", label: "Hambúrgueres", Icon: Sandwich },
+  { key: "acompanhamentos", label: "Acompanhamentos", Icon: UtensilsCrossed },
+  { key: "bebidas", label: "Bebidas", Icon: Coffee },
 ] as const;
 
 type CategoryKey = typeof CATEGORIES[number]["key"];
@@ -97,7 +98,7 @@ export default function MenuSection() {
                 : "border-white/5 text-white/20 cursor-default"
             }`}
           >
-            <span className="material-symbols-outlined text-[18px]">chevron_left</span>
+            <ChevronLeft size={18} strokeWidth={2.25} />
           </button>
 
           {/* Scrollable Track */}
@@ -124,12 +125,7 @@ export default function MenuSection() {
                   }`}
                   style={{ minWidth: "calc(33.333% - 0.35rem)" }}
                 >
-                  <span
-                    className="material-symbols-outlined text-[18px] leading-none"
-                    style={activeCategory === cat.key ? { fontVariationSettings: "'FILL' 1" } : {}}
-                  >
-                    {cat.icon}
-                  </span>
+                  <cat.Icon size={18} strokeWidth={activeCategory === cat.key ? 2.5 : 2} />
                   <span className="truncate">{cat.label}</span>
                 </button>
               ))}
@@ -154,7 +150,7 @@ export default function MenuSection() {
                 : "border-white/5 text-white/20 cursor-default"
             }`}
           >
-            <span className="material-symbols-outlined text-[18px]">chevron_right</span>
+            <ChevronRight size={18} strokeWidth={2.25} />
           </button>
         </div>
 

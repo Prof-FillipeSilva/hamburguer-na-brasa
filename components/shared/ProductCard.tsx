@@ -3,6 +3,7 @@
 import { Product, formatCurrency } from "@/lib/products";
 import { useCartStore } from "@/store/cartStore";
 import { useState } from "react";
+import { Eye, CheckCircle2, PlusCircle } from "lucide-react";
 
 interface ProductCardProps {
   product: Product;
@@ -54,7 +55,7 @@ export default function ProductCard({ product, onOpenModal }: ProductCardProps) 
         {/* "Ver detalhes" overlay on hover */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <span className="bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-4 py-2 rounded-full flex items-center gap-1.5 border border-white/20">
-            <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>visibility</span>
+            <Eye size={15} strokeWidth={2.25} />
             Ver detalhes
           </span>
         </div>
@@ -81,9 +82,9 @@ export default function ProductCard({ product, onOpenModal }: ProductCardProps) 
               : "bg-flame-orange/10 border border-flame-orange/30 text-flame-orange hover:bg-flame-orange/20"
           }`}
         >
-          <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
-            {justAdded ? "check_circle" : "add_circle"}
-          </span>
+          {justAdded
+            ? <CheckCircle2 size={16} strokeWidth={2.25} />
+            : <PlusCircle size={16} strokeWidth={2.25} />}
           {justAdded ? "Adicionado!" : "Adicionar"}
         </button>
       </div>

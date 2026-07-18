@@ -3,6 +3,7 @@
 import { useCartStore } from "@/store/cartStore";
 import { formatCurrency } from "@/lib/products";
 import { useEffect, useState } from "react";
+import { ShoppingBag, X, Trash2, Minus, Plus, Flame } from "lucide-react";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -53,16 +54,14 @@ export default function CartDrawer({ isOpen, onClose, onCheckout }: CartDrawerPr
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-flame-orange text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>
-              shopping_bag
-            </span>
+            <ShoppingBag size={24} strokeWidth={2.25} className="text-flame-orange" />
             <h2 className="text-xl font-heading font-bold">Sua Sacola</h2>
             <span className="text-xs bg-ember-red text-white px-2 py-0.5 rounded-full font-bold">
               {items.reduce((s, i) => s + i.quantity, 0)}
             </span>
           </div>
           <button onClick={onClose} className="p-2 rounded-lg hover:bg-white/5 transition-colors">
-            <span className="material-symbols-outlined text-muted-foreground">close</span>
+            <X size={22} strokeWidth={2} className="text-muted-foreground" />
           </button>
         </div>
 
@@ -70,7 +69,7 @@ export default function CartDrawer({ isOpen, onClose, onCheckout }: CartDrawerPr
         <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
-              <span className="material-symbols-outlined text-6xl text-muted-foreground/30">shopping_bag</span>
+              <ShoppingBag size={56} strokeWidth={1.5} className="text-muted-foreground/30" />
               <p className="text-muted-foreground text-lg">Sua sacola está vazia</p>
               <p className="text-muted-foreground/60 text-sm">Adicione itens do cardápio para começar!</p>
               <button onClick={onClose} className="mt-4 px-6 py-3 bg-flame-orange text-background font-semibold rounded-lg transition-all hover:opacity-90">
@@ -91,16 +90,16 @@ export default function CartDrawer({ isOpen, onClose, onCheckout }: CartDrawerPr
                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
                     className="w-9 h-9 flex items-center justify-center text-muted-foreground hover:text-ember-red transition-colors rounded-l-lg hover:bg-white/5"
                   >
-                    <span className="material-symbols-outlined text-sm">
-                      {item.quantity === 1 ? "delete" : "remove"}
-                    </span>
+                    {item.quantity === 1
+                      ? <Trash2 size={16} strokeWidth={2} />
+                      : <Minus size={16} strokeWidth={2.25} />}
                   </button>
                   <span className="w-6 text-center font-bold text-foreground text-sm">{item.quantity}</span>
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
                     className="w-9 h-9 flex items-center justify-center text-muted-foreground hover:text-flame-orange transition-colors rounded-r-lg hover:bg-white/5"
                   >
-                    <span className="material-symbols-outlined text-sm">add</span>
+                    <Plus size={16} strokeWidth={2.25} />
                   </button>
                 </div>
               </div>
@@ -132,9 +131,7 @@ export default function CartDrawer({ isOpen, onClose, onCheckout }: CartDrawerPr
               onClick={onCheckout}
               className="w-full py-4 bg-flame-orange text-background font-bold rounded-xl flex items-center justify-center gap-2 transition-all duration-300 hover:opacity-90 active:scale-[0.98] shadow-lg shadow-flame-orange/20 text-lg"
             >
-              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
-                local_fire_department
-              </span>
+              <Flame size={20} strokeWidth={2.25} />
               FINALIZAR PEDIDO
             </button>
           </div>

@@ -1,7 +1,22 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { MapPin } from "lucide-react";
+import {
+  UtensilsCrossed,
+  ShoppingBag,
+  ChevronDown,
+  Flame,
+  Leaf,
+  Heart,
+  Clock,
+  Phone,
+  Map,
+  ExternalLink,
+  MapPin,
+  Home as HomeIcon,
+  BadgeCheck,
+  Bike,
+} from "lucide-react";
 import Header from "@/components/layout/Header";
 import MenuSection from "@/components/sections/MenuSection";
 import CartDrawer from "@/components/shared/CartDrawer";
@@ -139,14 +154,14 @@ export default function Home() {
                 href="#cardapio"
                 className="inline-flex items-center gap-2 bg-ember-red-deep text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-ember-red/30 text-sm hover:scale-105 active:scale-95 transition-all duration-200"
               >
-                <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>restaurant_menu</span>
+                <UtensilsCrossed size={18} strokeWidth={2.25} />
                 VER CARDÁPIO
               </a>
               <button
                 onClick={() => setIsCartOpen(true)}
                 className="inline-flex items-center gap-2 border border-white/20 text-foreground font-bold px-7 py-3.5 rounded-xl hover:bg-white/5 text-sm hover:scale-105 active:scale-95 transition-all duration-200"
               >
-                <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>shopping_bag</span>
+                <ShoppingBag size={18} strokeWidth={2.25} />
                 MEU PEDIDO
               </button>
             </div>
@@ -154,12 +169,12 @@ export default function Home() {
             {/* Trust badges */}
             <div className={`flex flex-wrap gap-5 pt-2 transition-all duration-700 delay-500 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               {[
-                { icon: "verified", label: "Angus Selecionado" },
-                { icon: "local_fire_department", label: "Grelhado no Carvão" },
-                { icon: "delivery_dining", label: "Entrega Rápida" },
-              ].map(({ icon, label }) => (
+                { Icon: BadgeCheck, label: "Angus Selecionado" },
+                { Icon: Flame, label: "Grelhado no Carvão" },
+                { Icon: Bike, label: "Entrega Rápida" },
+              ].map(({ Icon, label }) => (
                 <div key={label} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <span className="material-symbols-outlined text-ember-red text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>{icon}</span>
+                  <Icon size={15} strokeWidth={2.25} className="text-ember-red" />
                   {label}
                 </div>
               ))}
@@ -169,7 +184,7 @@ export default function Home() {
             <div
               className={`flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground/50 pt-4 select-none transition-all duration-700 delay-700 ${heroVisible ? "opacity-100" : "opacity-0"} animate-bounce`}
             >
-              <span className="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+              <ChevronDown size={16} strokeWidth={2.25} />
               Rolar para baixo
             </div>
           </div>
@@ -200,31 +215,31 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
-                  icon: "local_fire_department",
+                  Icon: Flame,
                   title: "Grelhado no Fogo",
                   desc: "Nossos blends são grelhados em fogo alto sobre carvão e lenha, garantindo suculência interna e aquela crostinha defumada inconfundível.",
                   delay: "delay-100",
                 },
                 {
-                  icon: "eco",
+                  Icon: Leaf,
                   title: "Ingredientes Frescos",
                   desc: "Selecionamos fornecedores locais. Cada ingrediente é escolhido com cuidado para garantir o máximo de sabor e frescor no seu prato.",
                   delay: "delay-200",
                 },
                 {
-                  icon: "favorite",
+                  Icon: Heart,
                   title: "Feito com Amor",
                   desc: "Cada hambúrguer é preparado individualmente, com atenção a cada detalhe. Não é fast food — é comida de verdade, na hora.",
                   delay: "delay-300",
                 },
-              ].map(({ icon, title, desc, delay }) => (
+              ].map(({ Icon, title, desc, delay }) => (
                 <div
                   key={title}
                   className={`group relative bg-card rounded-2xl p-7 border border-white/5 hover:border-ember-red/30 transition-all duration-300 hover:shadow-xl hover:shadow-ember-red/10 animate-fade-in-up ${delay}`}
                 >
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ember-red/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-2xl" />
                   <div className="w-12 h-12 rounded-xl bg-ember-red/10 flex items-center justify-center mb-5 group-hover:bg-ember-red/20 transition-colors duration-300">
-                    <span className="material-symbols-outlined text-ember-red text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>{icon}</span>
+                    <Icon size={24} strokeWidth={2} className="text-ember-red" />
                   </div>
                   <h3 className="font-heading font-bold text-lg mb-3">{title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
@@ -263,7 +278,7 @@ export default function Home() {
               <div className="space-y-6">
                 <div className="space-y-3">
                   <h3 className="text-xs font-bold uppercase tracking-widest text-ember-red flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>schedule</span>
+                    <Clock size={15} strokeWidth={2.25} className="shrink-0" />
                     Horário de Funcionamento
                   </h3>
                   <div className="space-y-1.5 text-sm">
@@ -284,7 +299,7 @@ export default function Home() {
 
                 <div className="space-y-3">
                   <h3 className="text-xs font-bold uppercase tracking-widest text-ember-red flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>contact_phone</span>
+                    <Phone size={15} strokeWidth={2.25} className="shrink-0" />
                     Contato
                   </h3>
                   <div className="space-y-3 text-sm text-muted-foreground">
@@ -303,7 +318,7 @@ export default function Home() {
                       @hamburguernbrasa
                     </a>
                     <div className="flex items-start gap-2 pt-1">
-                      <MapPin size={16} strokeWidth={2} className="text-ember-red shrink-0 mt-0.5" />
+                      <MapPin size={16} strokeWidth={2} className="text-ember-red shrink-0 mt-0.5" fill="currentColor" fillOpacity={0.15} />
                       <span>QNO 06 Conjunto B lote 30,<br />Ceilândia Norte — Brasília/DF</span>
                     </div>
                   </div>
@@ -313,7 +328,7 @@ export default function Home() {
               {/* Google Maps Embed */}
               <div className="space-y-3">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-ember-red flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>map</span>
+                  <Map size={15} strokeWidth={2.25} className="shrink-0" />
                   Como Chegar
                 </h3>
                 <div className="rounded-2xl overflow-hidden border border-white/10 aspect-video w-full">
@@ -334,7 +349,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-xs text-ember-red hover:underline"
                 >
-                  <span className="material-symbols-outlined text-sm">open_in_new</span>
+                  <ExternalLink size={14} strokeWidth={2.25} />
                   Abrir no Google Maps
                 </a>
               </div>
@@ -357,22 +372,22 @@ export default function Home() {
         ══════════════════════════════════════════ */}
         <nav className="fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-2 py-2 bg-background/95 backdrop-blur-xl border-t border-white/10 md:hidden">
           <a href="#" className="flex flex-col items-center justify-center text-flame-orange py-1 px-3">
-            <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>home</span>
+            <HomeIcon size={22} strokeWidth={2.25} />
             <span className="text-[10px] mt-0.5 font-medium">Início</span>
           </a>
           <a href="#cardapio" className="flex flex-col items-center justify-center text-muted-foreground hover:text-foreground transition-colors py-1 px-3">
-            <span className="material-symbols-outlined text-xl">restaurant_menu</span>
+            <UtensilsCrossed size={22} strokeWidth={2} />
             <span className="text-[10px] mt-0.5 font-medium">Cardápio</span>
           </a>
           <button
             onClick={() => setIsCartOpen(true)}
             className="flex flex-col items-center justify-center text-muted-foreground hover:text-foreground transition-colors py-1 px-3"
           >
-            <span className="material-symbols-outlined text-xl">shopping_bag</span>
+            <ShoppingBag size={22} strokeWidth={2} />
             <span className="text-[10px] mt-0.5 font-medium">Sacola</span>
           </button>
           <a href="#footer-contato" className="flex flex-col items-center justify-center text-muted-foreground hover:text-foreground transition-colors py-1 px-3">
-            <span className="material-symbols-outlined text-xl">location_on</span>
+            <MapPin size={22} strokeWidth={2} />
             <span className="text-[10px] mt-0.5 font-medium">Local</span>
           </a>
         </nav>

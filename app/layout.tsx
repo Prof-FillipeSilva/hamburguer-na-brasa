@@ -18,8 +18,14 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark">
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1&display=block" rel="stylesheet" />
+        {/* Conecta cedo ao CDN de imagens e pré-carrega a imagem do hero (LCP) */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link
+          rel="preload"
+          as="image"
+          href="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=70&w=1000"
+          fetchPriority="high"
+        />
       </head>
       <body className={`${inter.variable} ${oswald.variable} font-body bg-background text-foreground antialiased`}>
         {children}
