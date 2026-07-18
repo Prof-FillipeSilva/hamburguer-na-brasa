@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { MapPin } from "lucide-react";
 import Header from "@/components/layout/Header";
 import MenuSection from "@/components/sections/MenuSection";
 import CartDrawer from "@/components/shared/CartDrawer";
@@ -302,7 +303,7 @@ export default function Home() {
                       @hamburguernbrasa
                     </a>
                     <div className="flex items-start gap-2 pt-1">
-                      <span className="material-symbols-outlined text-base text-ember-red mt-0.5">location_on</span>
+                      <MapPin size={16} strokeWidth={2} className="text-ember-red shrink-0 mt-0.5" />
                       <span>QNO 06 Conjunto B lote 30,<br />Ceilândia Norte — Brasília/DF</span>
                     </div>
                   </div>
