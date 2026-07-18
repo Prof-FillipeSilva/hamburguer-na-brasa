@@ -72,8 +72,8 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "duplo-inferno",
-    name: "Duplo Inferno",
+    id: "duplo-brasa",
+    name: "Duplo Brasa",
     price: 42.90,
     description: "Dois blends de 160g, cheddar duplo, jalapeño, onion rings e molho chipotle.",
     image: "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&q=65&w=800",

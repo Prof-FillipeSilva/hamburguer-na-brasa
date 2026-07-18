@@ -2,7 +2,8 @@ param(
     [string]$Message
 )
 
-Set-Location -Path "c:\Users\filli\OneDrive\Desktop\Projeto - Venda de Sites\sites_clientes\hamburguer-na-brasa-deploy"
+# Usa a pasta do próprio script (funciona mesmo que o projeto seja movido)
+Set-Location -Path $PSScriptRoot
 
 if (-not $Message) {
     $Message = "Atualizacao $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
