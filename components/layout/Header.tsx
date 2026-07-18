@@ -49,7 +49,7 @@ export default function Header({ onCartClick }: HeaderProps) {
         {/* Cart button — prominent pill */}
         <button
           onClick={onCartClick}
-          className="relative flex items-center gap-2 bg-ember-red hover:bg-ember-red/90 text-white font-bold px-4 py-2 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-ember-red/30 text-sm active:scale-95 hover:scale-105"
+          className="relative flex items-center gap-2 bg-ember-red-deep hover:bg-ember-red-deep/90 text-white font-bold px-4 py-2 rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-ember-red/30 text-sm active:scale-95 hover:scale-105"
           aria-label="Abrir carrinho"
         >
           <span
@@ -61,7 +61,7 @@ export default function Header({ onCartClick }: HeaderProps) {
           <span className="hidden sm:inline">Sacola</span>
 
           {totalItems > 0 && (
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-ember-red text-[10px] font-black animate-bounce">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-ember-red-deep text-[10px] font-black animate-bounce">
               {totalItems}
             </span>
           )}

@@ -45,7 +45,8 @@ const config: Config = {
         "on-surface": "#f9dcda",
         "surface-container": "#2c1b1b",
         "flame-orange": "#F4A261",
-        "ember-red": "#E63946",
+        "ember-red": "#E84450",
+        "ember-red-deep": "#C6283A",
       },
       fontFamily: {
         heading: ["Oswald", "sans-serif"],

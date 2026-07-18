@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="pt-BR" className="dark">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1&display=block" rel="stylesheet" />
       </head>
       <body className={`${inter.variable} ${oswald.variable} font-body bg-background text-foreground antialiased`}>
         {children}

@@ -93,7 +93,7 @@ export default function Home() {
             <div
               className="w-full h-full bg-cover bg-center"
               style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1600')",
+                backgroundImage: "url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=70&w=1000')",
                 WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,0.6) 30%, transparent 90%), linear-gradient(to top, transparent 0%, black 35%)",
                 maskImage: "linear-gradient(to left, rgba(0,0,0,0.6) 30%, transparent 90%), linear-gradient(to top, transparent 0%, black 35%)",
                 WebkitMaskComposite: "destination-in",
@@ -136,7 +136,7 @@ export default function Home() {
             <div className={`flex flex-wrap gap-3 pt-1 transition-all duration-700 delay-300 ${heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <a
                 href="#cardapio"
-                className="inline-flex items-center gap-2 bg-ember-red text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-ember-red/30 text-sm hover:scale-105 active:scale-95 transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-ember-red-deep text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-ember-red/30 text-sm hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>restaurant_menu</span>
                 VER CARDÁPIO
@@ -261,10 +261,10 @@ export default function Home() {
               {/* Horários & Contato */}
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-ember-red flex items-center gap-2">
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-ember-red flex items-center gap-2">
                     <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>schedule</span>
                     Horário de Funcionamento
-                  </h4>
+                  </h3>
                   <div className="space-y-1.5 text-sm">
                     <div className="flex justify-between text-muted-foreground">
                       <span>Segunda — Quinta</span>
@@ -282,10 +282,10 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-ember-red flex items-center gap-2">
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-ember-red flex items-center gap-2">
                     <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>contact_phone</span>
                     Contato
-                  </h4>
+                  </h3>
                   <div className="space-y-3 text-sm text-muted-foreground">
                     <a href="https://wa.me/5561993586071" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-ember-red transition-colors">
                       <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" className="text-ember-red shrink-0">
@@ -311,10 +311,10 @@ export default function Home() {
 
               {/* Google Maps Embed */}
               <div className="space-y-3">
-                <h4 className="text-xs font-bold uppercase tracking-widest text-ember-red flex items-center gap-2">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-ember-red flex items-center gap-2">
                   <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>map</span>
                   Como Chegar
-                </h4>
+                </h3>
                 <div className="rounded-2xl overflow-hidden border border-white/10 aspect-video w-full">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.9!2d-48.0!3d-15.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935bcc43c!2sCeil%C3%A2ndia%2C%20Bras%C3%ADlia%20-%20DF!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
@@ -344,7 +344,7 @@ export default function Home() {
               <p className="text-xs text-muted-foreground">
                 © 2026 Hambúrguer na Brasa. Todos os direitos reservados.
               </p>
-              <p className="text-xs text-muted-foreground/50">
+              <p className="text-xs text-muted-foreground/60">
                 Feito com 🔥 em Ceilândia — DF
               </p>
             </div>
@@ -398,7 +398,7 @@ export default function Home() {
         href="https://wa.me/5561993586071"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-20 right-4 md:bottom-8 md:right-8 z-40 w-14 h-14 bg-ember-red text-white rounded-full flex items-center justify-center shadow-lg shadow-ember-red/30 hover:scale-110 active:scale-95 transition-all duration-300 animate-fade-in-up"
+        className="fixed bottom-20 right-4 md:bottom-8 md:right-8 z-40 w-14 h-14 bg-ember-red-deep text-white rounded-full flex items-center justify-center shadow-lg shadow-ember-red/30 hover:scale-110 active:scale-95 transition-all duration-300 animate-fade-in-up"
         aria-label="Falar no WhatsApp"
       >
         <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">

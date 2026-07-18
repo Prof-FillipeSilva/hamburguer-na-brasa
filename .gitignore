@@ -28,6 +28,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# lighthouse reports exportados do DevTools
+*.vercel.app-*.html
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
